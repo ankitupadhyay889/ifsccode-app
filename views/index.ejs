@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%=title%></title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+  </head>
+  <body>
+      <div class="container">
+        <h1 class="text-center">
+            IFSC Code Info Finder
+        </h1>
+        <form action="/ifsc" method="post" id="form">
+            <div class="form-group">
+                <label>IFSC Code:</label>
+                <input class="form-control" required type="text" name="ifsc" placeholder="IFSC Code"/>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-danger btn-block">
+                    Get Info
+                </button>
+            </div>
+            <%if (data) { %>
+                <table class="table table-striped">
+                    <thead>
+                      <tr>
+                        <th>District</th>
+                        <th>Branch</th>
+                        <th>Micr Code</th>
+                        <th>State</th>
+                        <th>Address</th>
+                        <th>Contact</th>
+                        <th>Bank</th>
+                        <th>Bank Code</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><%=response.DISTRICT%></td>
+                        <td><%=response.BRANCH%></td>
+                        <td><%=response.MICR%></td>
+                        <td><%=response.STATE%></td>
+                        <td><%=response.ADDRESS%></td>
+                        <td><%=response.CONTACT%></td>
+                        <td><%=response.BANK%></td>
+                        <td><%=response.BANKCODE%></td>
+                      </tr>
+                    </tbody>
+                  </table>
+            <% } %>
+   
+        </form>
+      </div>
+</body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</html>
